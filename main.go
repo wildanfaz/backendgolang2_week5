@@ -37,7 +37,7 @@ func printInvertedTriangle(num int) {
 }
 
 func generatePassword(password string, level string) string {
-	var randomInt = strconv.Itoa(rand.Intn(1000))
+	var randomInt = strconv.Itoa(rand.Intn(1000) + 100)
 
 	if len(password) >= 6 {
 		if level == "low" {
