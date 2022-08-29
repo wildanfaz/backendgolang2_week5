@@ -12,13 +12,13 @@ func main() {
 
 	fmt.Println(generatePassword("tes", "low"))
 	fmt.Println(generatePassword("muhamadwildanfaz", "low"))
-	fmt.Println(generatePassword("muhamadwildanfaz", "medium"))
+	fmt.Println(generatePassword("muhamadwildanfaz", "med"))
 	fmt.Println(generatePassword("muhamadwildanfaz", "strong"))
-	fmt.Println(generatePassword("muhamadwildanfaz", "strong"))
+	fmt.Println(generatePassword("muhamadwildanfaz", "very strong"))
 
+	fmt.Println(countDuration(9))
 	fmt.Println(countDuration(10))
 	fmt.Println(countDuration(11))
-	fmt.Println(countDuration(12))
 	fmt.Println(countDuration(100))
 }
 
@@ -37,14 +37,23 @@ func printInvertedTriangle(num int) {
 }
 
 func generatePassword(password string, level string) string {
-	var randomInt = strconv.Itoa(rand.Intn(1000) + 100)
+	var randomInt = strconv.Itoa(rand.Intn(900) + 100)
 
 	if len(password) >= 6 {
 		if level == "low" {
-			password += randomInt
-			return password
+			slice := make([]string, len(password))
+			for i := range password {
+				if rand.Int()%2 == 1 {
+					slice[i] = strings.ToLower(string(password[i]))
+				} else {
+					slice[i] = strings.ToUpper(string(password[i]))
+				}
+			}
+			result := strings.Join(slice, "")
 
-		} else if level == "medium" {
+			return result
+
+		} else if level == "med" {
 			password += randomInt
 
 			slice := make([]string, len(password))
@@ -70,7 +79,7 @@ func generatePassword(password string, level string) string {
 			}
 			result := strings.Join(slice, "")
 
-			specialChars := "~!@#$%^&*()_"
+			specialChars := "~!@$%*_&#^()"
 			for i := 0; i < 3; i++ {
 				result += string(specialChars[rand.Intn(len(specialChars))])
 			}
