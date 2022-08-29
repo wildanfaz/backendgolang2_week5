@@ -97,7 +97,7 @@ func generatePassword(password string, level string) string {
 }
 
 func countDuration(n int) string {
-	data := []int{2, 3, 1, 8, 5, 4, 6, 7, 3, 4, 2}
+	data := []int{2, 3, 1, 8, 5, 4, 6, 7, 1, 4, 2}
 	result := ""
 	for i, first := range data {
 		for j, second := range data {
