@@ -97,14 +97,14 @@ func generatePassword(password string, level string) string {
 }
 
 func countDuration(n int) string {
-	data := []int{2, 3, 1, 8, 5, 4, 6, 7}
+	data := []int{2, 3, 1, 8, 5, 4, 6, 7, 3, 4, 2}
 	result := ""
-	for i := 0; i < 1000; i++ {
-		x := data[rand.Intn(len(data))]
-		y := data[rand.Intn(len(data))]
-		if x+y == n {
-			result = strconv.Itoa(x) + " and " + strconv.Itoa(y)
-			break
+	for i, first := range data {
+		for j, second := range data {
+			if first+second == n && i != j {
+				result = strconv.Itoa(first) + " and " + strconv.Itoa(second)
+				break
+			}
 		}
 	}
 	if result != "" {
