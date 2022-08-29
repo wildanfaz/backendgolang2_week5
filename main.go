@@ -54,8 +54,6 @@ func generatePassword(password string, level string) string {
 			return result
 
 		} else if level == "med" {
-			password += randomInt
-
 			slice := make([]string, len(password))
 			for i := range password {
 				if rand.Int()%2 == 1 {
@@ -65,6 +63,8 @@ func generatePassword(password string, level string) string {
 				}
 			}
 			result := strings.Join(slice, "")
+
+			result += randomInt
 
 			return result
 
