@@ -89,7 +89,7 @@ func generatePassword(password string, level string) string {
 			return result
 
 		} else {
-			return "invalid level, please use low, medium, or strong"
+			return "invalid level, please use low, med, or strong"
 		}
 	} else {
 		return "password too weak, at least 6 characters"
