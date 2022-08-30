@@ -23,12 +23,12 @@ func main() {
 }
 
 func printInvertedTriangle(num int) {
-	result := ""
+	result := "   "
 	for i := num; i > 0; i-- {
 		for j := 1; j < i*2; j++ {
 			result += "*"
 		}
-		result += "\n"
+		result += "\n   "
 		for k := num - i; k >= 0; k-- {
 			result += " "
 		}
@@ -37,7 +37,8 @@ func printInvertedTriangle(num int) {
 }
 
 func generatePassword(password string, level string) string {
-	var randomInt = strconv.Itoa(rand.Intn(900) + 100)
+	// var randomInt = strconv.Itoa(rand.Intn(900) + 100)
+	var randNumber = "0123456789"
 
 	if len(password) >= 6 {
 		if level == "low" {
@@ -64,7 +65,10 @@ func generatePassword(password string, level string) string {
 			}
 			result := strings.Join(slice, "")
 
-			result += randomInt
+			// result += randomInt
+			for i := 0; i < 3; i++ {
+				result += string(randNumber[rand.Intn(len(randNumber))])
+			}
 
 			return result
 
@@ -84,7 +88,10 @@ func generatePassword(password string, level string) string {
 				result += string(specialChars[rand.Intn(len(specialChars))])
 			}
 
-			result += randomInt
+			// result += randomInt
+			for i := 0; i < 3; i++ {
+				result += string(randNumber[rand.Intn(len(randNumber))])
+			}
 
 			return result
 
