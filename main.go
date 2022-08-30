@@ -5,6 +5,7 @@ import (
 	"math/rand"
 	"strconv"
 	"strings"
+	"time"
 )
 
 func main() {
@@ -38,6 +39,7 @@ func printInvertedTriangle(num int) {
 
 func generatePassword(password string, level string) string {
 	// var randomInt = strconv.Itoa(rand.Intn(900) + 100)
+	rand.Seed(time.Now().UnixNano())
 	var randNumber = "0123456789"
 
 	if len(password) >= 6 {
