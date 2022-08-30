@@ -43,7 +43,7 @@ func generatePassword(password string, level string) string {
 		if level == "low" {
 			slice := make([]string, len(password))
 			for i := range password {
-				if rand.Int()%2 == 1 {
+				if rand.Intn(10)%2 == 1 {
 					slice[i] = strings.ToLower(string(password[i]))
 				} else {
 					slice[i] = strings.ToUpper(string(password[i]))
@@ -56,7 +56,7 @@ func generatePassword(password string, level string) string {
 		} else if level == "med" {
 			slice := make([]string, len(password))
 			for i := range password {
-				if rand.Int()%2 == 1 {
+				if rand.Intn(10)%2 == 1 {
 					slice[i] = strings.ToLower(string(password[i]))
 				} else {
 					slice[i] = strings.ToUpper(string(password[i]))
@@ -71,7 +71,7 @@ func generatePassword(password string, level string) string {
 		} else if level == "strong" {
 			slice := make([]string, len(password))
 			for i := range password {
-				if rand.Int()%2 == 1 {
+				if rand.Intn(10)%2 == 1 {
 					slice[i] = strings.ToLower(string(password[i]))
 				} else {
 					slice[i] = strings.ToUpper(string(password[i]))
